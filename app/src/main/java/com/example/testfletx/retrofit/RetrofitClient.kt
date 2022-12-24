@@ -10,6 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -36,9 +37,13 @@ class RetrofitClient {
             .cache(Cache(context.cacheDir, cacheSize))
             .addInterceptor { chain ->
                 var request = chain.request()
-                request = if (hasNetwork(context)!!)
-                    request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
-                else
+                request = if (hasNetwork(context)!!) {
+                    val requestBuilder: Request.Builder = chain.request().newBuilder()
+                    requestBuilder.header("Cache-Control", "public, max-age=" + 5)
+                    requestBuilder.header("Content-Type", "application/json")
+                    requestBuilder.header("Authorization", "Bearer ab11cb7605a030ee350d08f805057413")
+                    requestBuilder.build()
+                } else
                     request.newBuilder().header(
                         "Cache-Control",
                         "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7

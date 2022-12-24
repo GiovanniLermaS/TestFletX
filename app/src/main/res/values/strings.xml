@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TestFletX</string>
+    <string name="available">Disponible</string>
+    <string name="noAvailable">No disponible</string>
+    <string name="noDriver">Sin conductor</string>
+    <string name="noTrailer">Sin trailer</string>
 </resources>

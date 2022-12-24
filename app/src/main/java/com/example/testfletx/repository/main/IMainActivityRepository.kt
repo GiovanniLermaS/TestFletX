@@ -1,10 +1,10 @@
 package com.example.testfletx.repository.main
 
-import com.example.testfletx.model.Vehicles
+import com.example.testfletx.model.Data
 
 interface IMainActivityRepository {
     fun getVehicles(
-        response: (ArrayList<Vehicles>) -> Unit,
+        response: (Data) -> Unit,
         error: (String?) -> Unit
     )
 }
