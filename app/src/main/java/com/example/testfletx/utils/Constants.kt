@@ -6,6 +6,7 @@ import android.net.NetworkInfo
 
 const val BASE_URL = "http://st.fletx.co:3000/"
 const val GET_VEHICLES = "people/holder_vehicles/2282.json"
+const val VEHICLE = "vehicle"
 
 fun hasNetwork(context: Context): Boolean? {
     var isConnected: Boolean? = false

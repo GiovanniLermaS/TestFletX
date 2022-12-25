@@ -1,8 +1,9 @@
 package com.example.testfletx.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Vehicle {
+class Vehicle : Serializable {
 
     @SerializedName("front_vehicle")
     val frontVehicle = FrontVehicle()

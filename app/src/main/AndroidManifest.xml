@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestFletX"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD3WB9joY9Vu_HYoU6aSUHzGM6om2ZiqpQ" />
+
+        <activity
+            android:name=".view.map.MapActivity"
+            android:exported="false" />
+
         <activity
             android:name=".view.main.MainActivity"
             android:exported="true">

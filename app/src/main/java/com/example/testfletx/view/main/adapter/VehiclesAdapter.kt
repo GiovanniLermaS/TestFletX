@@ -8,8 +8,9 @@ import com.bumptech.glide.Glide
 import com.example.testfletx.R
 import com.example.testfletx.databinding.ViewVehiclesBinding
 import com.example.testfletx.model.Data
+import com.example.testfletx.view.main.interfaces.ClickVehicle
 
-class VehiclesAdapter(private val data: Data) :
+class VehiclesAdapter(private val data: Data, private val clickVehicle: ClickVehicle) :
     RecyclerView.Adapter<VehiclesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -37,6 +38,7 @@ class VehiclesAdapter(private val data: Data) :
         holder.binding.isAvailable.text =
             if (vehicle.status == 1) context.getString(R.string.available)
             else context.getString(R.string.noAvailable)
+        holder.itemView.setOnClickListener { clickVehicle.onVehicleSelected(vehicle) }
     }
 
     override fun getItemCount() = data.vehicle.size
